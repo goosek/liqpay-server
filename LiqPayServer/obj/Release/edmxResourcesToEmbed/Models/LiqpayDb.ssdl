@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LiqPayDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Errors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ErrorDate" Type="datetime" />
+    <Property Name="ErrorMessage" Type="nvarchar(max)" />
+    <Property Name="ErrorInfo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="rl_feedback_data">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Message" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="rl_liqpay_donate_info">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Order_id" Type="nvarchar(max)" />
+    <Property Name="Action" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Currency" Type="nvarchar(max)" />
+    <Property Name="Subscribe_amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Subscribe_date_start" Type="nvarchar(max)" />
+    <Property Name="Subscribe_periodicity" Type="nvarchar(max)" />
+    <Property Name="Signature" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="JsonData" Type="nvarchar(max)" />
+    <Property Name="Sender_commission" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Receiver_commission" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Agent_commission" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Sender_card_country" Type="nvarchar(max)" />
+    <Property Name="Ip" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaimentDate" Type="datetime" />
+    <Property Name="TypeOfPayer" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created_Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="rl_subscribers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="LiqPayDBModelStoreContainer">
+    <EntitySet Name="Errors" EntityType="Self.Errors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rl_feedback_data" EntityType="Self.rl_feedback_data" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rl_liqpay_donate_info" EntityType="Self.rl_liqpay_donate_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rl_subscribers" EntityType="Self.rl_subscribers" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
